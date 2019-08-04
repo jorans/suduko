@@ -6,7 +6,7 @@ import java.util.Objects;
  *
  */
 public class Value {
-	static Value EMPTY = new Value(" ");
+	public static Value EMPTY = new Value(" ");
 
 	private String value;
 
