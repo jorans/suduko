@@ -2,12 +2,9 @@ package se.stark.suduko.core;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 /**
  *
  */
-@Service
 public class DefaultGameServiceImpl implements GameService {
 	Board board;
 

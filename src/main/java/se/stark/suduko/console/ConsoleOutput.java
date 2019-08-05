@@ -4,18 +4,15 @@ import static java.lang.String.format;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-
+import se.stark.suduko.api.BoardUpdatedAware;
 import se.stark.suduko.api.messages.Message;
 import se.stark.suduko.api.messages.MessageAware;
 import se.stark.suduko.core.Board;
-import se.stark.suduko.api.BoardUpdatedAware;
 import se.stark.suduko.core.Value;
 
 /**
  *
  */
-@Component
 public class ConsoleOutput implements BoardUpdatedAware, MessageAware {
 	private static final char START_SE_THIN = '\u2514';
 	private static final char SPACER_THIN = '─';

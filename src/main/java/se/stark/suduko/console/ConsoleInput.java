@@ -2,8 +2,6 @@ package se.stark.suduko.console;
 
 import java.util.Scanner;
 
-import org.springframework.stereotype.Component;
-
 import se.stark.suduko.api.InputProvider;
 import se.stark.suduko.api.events.AddNumberEvent;
 import se.stark.suduko.api.events.EventAware;
@@ -13,7 +11,6 @@ import se.stark.suduko.api.events.RemoveNumberEvent;
 /**
  *
  */
-@Component
 public class ConsoleInput implements InputProvider {
 	private EventAware eventHandler;
 

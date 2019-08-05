@@ -1,6 +1,5 @@
-package se.stark.suduko;
+package se.stark.suduko.core;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import se.stark.suduko.api.BoardUpdatedAware;
@@ -13,24 +12,21 @@ import se.stark.suduko.api.events.QuitEvent;
 import se.stark.suduko.api.events.RemoveNumberEvent;
 import se.stark.suduko.api.messages.Message;
 import se.stark.suduko.api.messages.MessageAware;
-import se.stark.suduko.core.Board;
-import se.stark.suduko.core.GameService;
 
 /**
  *
  */
-public class GameManager implements EventAware {
+public class EventHandler implements EventAware {
 	List<BoardUpdatedAware> boardUpdatedListeners;
 	List<InputProvider> inputProviders;
 	List<MessageAware> messageListeners;
 	GameService gameService;
 
-
-	public GameManager(GameService gameService) {
+	public EventHandler(List<BoardUpdatedAware> boardUpdatedListeners, List<InputProvider> inputProviders, List<MessageAware> messageListeners, GameService gameService) {
+		this.boardUpdatedListeners = boardUpdatedListeners;
+		this.inputProviders = inputProviders;
+		this.messageListeners = messageListeners;
 		this.gameService = gameService;
-		this.boardUpdatedListeners = new ArrayList<>();
-		this.inputProviders = new ArrayList<>();
-		this.messageListeners = new ArrayList<>();
 	}
 
 	@Override
@@ -81,4 +77,5 @@ public class GameManager implements EventAware {
 	private void notifyMessageListeners(Message message) {
 		messageListeners.forEach(messageAware -> messageAware.publishMessage(message));
 	}
+
 }
